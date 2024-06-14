@@ -14,11 +14,12 @@ import {
   FavoriteBorderOutlined,
   FavoriteOutlined,
   ShareOutlined,
+  DeleteOutline,
 } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
 import Friend from "components/Friend";
 import WidgetWrapper from "components/WidgetWrapper";
-import { setPost } from "state";
+import { setPost, removePost } from "state";
 
 const PostWidget = ({
   postId,
@@ -103,6 +104,26 @@ const PostWidget = ({
     }
   };
 
+  const handleDeletePost = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error ${response.status}: ${errorText}`);
+      }
+
+      dispatch(removePost({ postId }));
+    } catch (error) {
+      console.error("Failed to delete post:", error);
+    }
+  };
+
   return (
     <WidgetWrapper m="2rem 0">
       <Friend
@@ -145,6 +166,11 @@ const PostWidget = ({
         <IconButton>
           <ShareOutlined />
         </IconButton>
+        {loggedInUserId === postUserId && (
+          <IconButton onClick={handleDeletePost}>
+            <DeleteOutline />
+          </IconButton>
+        )}
       </FlexBetween>
       {isComments && (
         <Box mt="0.5rem">
