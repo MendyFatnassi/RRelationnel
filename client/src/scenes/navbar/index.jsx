@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          CITYEN
+          CITOYEN
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
@@ -65,7 +65,7 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Search..." />
+            <InputBase placeholder="Recherche..." />
             <IconButton>
               <Search />
             </IconButton>
@@ -107,7 +107,7 @@ const Navbar = () => {
               <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>Se deconnecter</MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
@@ -183,7 +183,7 @@ const Navbar = () => {
                   <Typography>{fullName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>
-                  Log Out
+                  Se deconnecter
                 </MenuItem>
               </Select>
             </FormControl>

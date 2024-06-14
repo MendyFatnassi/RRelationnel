@@ -66,7 +66,7 @@ const PostWidget = ({
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
     } catch (error) {
-      console.error("Failed to like post:", error);
+      console.error("Impossible d'aimer la ressource:", error);
     }
   };
 
@@ -100,7 +100,7 @@ const PostWidget = ({
       dispatch(setPost({ post: updatedPost })); // Mettre à jour le post dans Redux
       setNewComment("");
     } catch (error) {
-      console.error("Failed to add comment:", error);
+      console.error("Impossible de commenter la ressource:", error);
     }
   };
 
@@ -120,7 +120,7 @@ const PostWidget = ({
 
       dispatch(removePost({ postId }));
     } catch (error) {
-      console.error("Failed to delete post:", error);
+      console.error("Impossible de supprimer le post:", error);
     }
   };
 
@@ -196,7 +196,7 @@ const PostWidget = ({
           ))}
           <Divider />
           <TextField
-            label="Add a comment"
+            label="Ajouter un commentaire"
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             fullWidth
@@ -207,7 +207,7 @@ const PostWidget = ({
             variant="contained"
             color="primary"
           >
-            Comment
+            Commentaire
           </Button>
         </Box>
       )}
