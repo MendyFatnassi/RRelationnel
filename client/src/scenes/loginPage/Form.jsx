@@ -195,7 +195,7 @@ const Form = () => {
                       >
                         <input {...getInputProps()} />
                         {!values.picture ? (
-                          <p>Add Picture Here</p>
+                          <p>Ajouter une image</p>
                         ) : (
                           <FlexBetween>
                             <Typography>{values.picture.name}</Typography>
@@ -245,7 +245,7 @@ const Form = () => {
                 "&:hover": { color: palette.primary.main },
               }}
             >
-              {isLogin ? "Connection" : "Enregistrer"}
+              {isLogin ? "Se Connecter" : "Enregistrer"}
             </Button>
             <Typography
               onClick={() => {

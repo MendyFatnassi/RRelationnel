@@ -62,7 +62,7 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="What's on your mind..."
+          placeholder="Qu'avez vous envie de partager ?"
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
@@ -96,7 +96,7 @@ const MyPostWidget = ({ picturePath }) => {
                 >
                   <input {...getInputProps()} />
                   {!image ? (
-                    <p>Add Image Here</p>
+                    <p>Ajouter une image</p>
                   ) : (
                     <FlexBetween>
                       <Typography>{image.name}</Typography>
